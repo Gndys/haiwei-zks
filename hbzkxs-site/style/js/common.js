@@ -20,3 +20,175 @@ function SaveRememberInfo(){var strName=$("#inpName").val();var strEmail=$("#inp
 function RevertComment(i){$("#inpRevID").val(i);$("#cancel-reply").show().bind("click",function(){$("#inpRevID").val(0);$(this).hide();window.location.hash="#comment";return false;});window.location.hash="#comment";}
 function GetComments(postid,page){$.get(bloghost+"zb_system/cmd.php?act=getcmt&postid="+postid+"&page="+page,function(data){$('#AjaxCommentBegin').nextUntil('#AjaxCommentEnd').remove();$('#AjaxCommentBegin').after(data);});}
 function CommentComplete(){}
+
+(function () {
+  function computeSiteRootUrl() {
+    var url = new URL(window.location.href);
+    var pathname = decodeURIComponent(url.pathname || "");
+    var segments = pathname.split("/").filter(Boolean);
+
+    var knownTopDirs = Object.create(null);
+    [
+      "chejian",
+      "dcyxxs",
+      "haowoxianshu",
+      "index.php",
+      "jiagongliucheng",
+      "jiefangxianshu",
+      "jishuzhichi",
+      "jishuzhichi_2",
+      "jishuzhichi_3",
+      "jishuzhichi_4",
+      "jishuzhichi_5",
+      "list_19",
+      "news",
+      "oumanxianshu",
+      "qcxianshu",
+      "qichexianshuchatou",
+      "search",
+      "static",
+      "style",
+      "xianshu",
+      "xianshu_2",
+      "xianshu_3",
+      "xianshu_4",
+      "xianshu_5",
+      "xianshuchangjia",
+      "xianshuchangjialxdh",
+      "xianshuzhishi",
+      "xnyxs",
+    ].forEach(function (d) {
+      knownTopDirs[d] = true;
+    });
+
+    var rootIndex = -1;
+    for (var i = 0; i < segments.length; i++) {
+      if (knownTopDirs[segments[i]]) {
+        rootIndex = i;
+        break;
+      }
+    }
+
+    var rootSegments;
+    if (rootIndex >= 0) {
+      rootSegments = segments.slice(0, rootIndex);
+    } else if (segments.length && /\.html?$/i.test(segments[segments.length - 1])) {
+      rootSegments = segments.slice(0, -1);
+    } else {
+      rootSegments = segments.slice();
+    }
+
+    url.hash = "";
+    url.search = "";
+    url.pathname = "/" + rootSegments.join("/") + (rootSegments.length ? "/" : "/");
+    return url;
+  }
+
+  function normalizeSitePath(raw) {
+    var value = raw || "";
+
+    if (/^\/search\/?$/.test(value)) {
+      return "/search/index.html";
+    }
+
+    if (value.charAt(value.length - 1) === "/") {
+      return value + "index.html";
+    }
+
+    return value;
+  }
+
+  function rewriteUrlAttr(el, attr, rootUrl) {
+    var raw = el.getAttribute(attr);
+    if (!raw || raw.indexOf("/") !== 0 || raw.indexOf("//") === 0) return;
+
+    var hash = "";
+    var query = "";
+    var hashIndex = raw.indexOf("#");
+    if (hashIndex !== -1) {
+      hash = raw.slice(hashIndex);
+      raw = raw.slice(0, hashIndex);
+    }
+    var queryIndex = raw.indexOf("?");
+    if (queryIndex !== -1) {
+      query = raw.slice(queryIndex);
+      raw = raw.slice(0, queryIndex);
+    }
+
+    var normalized = normalizeSitePath(raw);
+    var fixed = new URL(normalized.replace(/^\\/+/, ""), rootUrl).href + query + hash;
+    el.setAttribute(attr, fixed);
+  }
+
+  function fixAbsoluteSiteLinksForFileProtocol() {
+    if (window.location.protocol !== "file:") return;
+    if (typeof URL !== "function") return;
+
+    var rootUrl;
+    try {
+      rootUrl = computeSiteRootUrl();
+    } catch (e) {
+      return;
+    }
+
+    var nodes = document.querySelectorAll(
+      'a[href^="/"]:not([href^="//"]), img[src^="/"]:not([src^="//"]), form[action^="/"]'
+    );
+
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      if (el.tagName === "A") rewriteUrlAttr(el, "href", rootUrl);
+      else if (el.tagName === "IMG") rewriteUrlAttr(el, "src", rootUrl);
+      else if (el.tagName === "FORM") rewriteUrlAttr(el, "action", rootUrl);
+    }
+
+    if (window.__hbzkxsFileLinkFixInstalled) return;
+    window.__hbzkxsFileLinkFixInstalled = true;
+
+    document.addEventListener(
+      "click",
+      function (e) {
+        if (e.defaultPrevented) return;
+
+        var node = e.target;
+        while (node && node.nodeType === 1 && node.tagName !== "A") {
+          node = node.parentElement;
+        }
+        if (!node || node.tagName !== "A") return;
+
+        var href = node.getAttribute("href") || "";
+        if (!href || href.indexOf("/") !== 0 || href.indexOf("//") === 0) return;
+        if (href.indexOf("#") === 0) return;
+
+        try {
+          var hash = "";
+          var query = "";
+          var raw = href;
+          var hashIndex = raw.indexOf("#");
+          if (hashIndex !== -1) {
+            hash = raw.slice(hashIndex);
+            raw = raw.slice(0, hashIndex);
+          }
+          var queryIndex = raw.indexOf("?");
+          if (queryIndex !== -1) {
+            query = raw.slice(queryIndex);
+            raw = raw.slice(0, queryIndex);
+          }
+
+          var normalized = normalizeSitePath(raw);
+          var fixed = new URL(normalized.replace(/^\/+/, ""), rootUrl).href + query + hash;
+          node.setAttribute("href", fixed);
+          e.preventDefault();
+          window.location.href = fixed;
+        } catch (err) {}
+      },
+      true
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixAbsoluteSiteLinksForFileProtocol);
+  } else {
+    fixAbsoluteSiteLinksForFileProtocol();
+  }
+})();
