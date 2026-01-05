@@ -22,6 +22,67 @@ function GetComments(postid,page){$.get(bloghost+"zb_system/cmd.php?act=getcmt&p
 function CommentComplete(){}
 
 (function () {
+  function ensureProductCenterSideMenu() {
+    var sideMenu = document.querySelector(".sideMenu");
+    if (!sideMenu) return;
+
+    var title = sideMenu.querySelector("h3");
+    if (!title) return;
+    var titleText = (title.textContent || "").replace(/\s+/g, "");
+    if (titleText.indexOf("产品中心") === -1) return;
+
+    var ul = sideMenu.querySelector("ul");
+    if (!ul) return;
+
+    var items = [
+      { href: "/zhengche/", text: "整车线束" },
+      { href: "/weixian/", text: "尾线散件" },
+      { href: "/guigetu/", text: "规格图" },
+      { href: "/piliang/", text: "批量混合" },
+    ];
+
+    var currentPath = "";
+    try {
+      currentPath = decodeURIComponent((new URL(window.location.href)).pathname || "");
+    } catch (e) {}
+
+    var html = "";
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      var active = currentPath.indexOf("/" + it.href.replace(/^\/+/, "")) !== -1;
+      html +=
+        '<li><a href="' +
+        it.href +
+        '"' +
+        (active ? ' class="hover"' : "") +
+        ">" +
+        it.text +
+        "</a></li>";
+    }
+
+    ul.innerHTML = html;
+
+    var straySelectors = [
+      'a[href^="/qcxianshu/"]',
+      'a[href^="/xnyxs/"]',
+      'a[href^="/qichexianshuchatou/"]',
+      'a[href^="/dcyxxs/"]',
+      'a[href^="/jiefangxianshu/"]',
+      'a[href^="/oumanxianshu/"]',
+      'a[href^="/haowoxianshu/"]',
+      'a[href^="/list_19/"]',
+    ].join(",");
+
+    var stray = document.querySelectorAll(straySelectors);
+    for (var k = 0; k < stray.length; k++) {
+      var link = stray[k];
+      if (link.closest && (link.closest(".sideMenu") || link.closest("#breadcrumb"))) continue;
+      var parent = link.parentElement;
+      if (parent && parent.tagName === "LI") continue;
+      if (parent) parent.removeChild(link);
+    }
+  }
+
   function computeSiteRootUrl() {
     var url = new URL(window.location.href);
     var pathname = decodeURIComponent(url.pathname || "");
@@ -57,6 +118,10 @@ function CommentComplete(){}
       "xianshuchangjialxdh",
       "xianshuzhishi",
       "xnyxs",
+      "zhengche",
+      "weixian",
+      "guigetu",
+      "piliang",
     ].forEach(function (d) {
       knownTopDirs[d] = true;
     });
@@ -187,8 +252,12 @@ function CommentComplete(){}
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", fixAbsoluteSiteLinksForFileProtocol);
+    document.addEventListener("DOMContentLoaded", function () {
+      ensureProductCenterSideMenu();
+      fixAbsoluteSiteLinksForFileProtocol();
+    });
   } else {
+    ensureProductCenterSideMenu();
     fixAbsoluteSiteLinksForFileProtocol();
   }
 })();
