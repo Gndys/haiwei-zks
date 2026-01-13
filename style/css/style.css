@@ -93,8 +93,8 @@ img.alignright { float: right; margin: 0 0 15px 15px; }
 .productsList { clear: both; overflow: hidden; }
 .productsList ul { overflow: hidden; width: 1240px; display: flex; flex-wrap: wrap; }
 .productsList ul li { width: 270px; float: left; margin: 20px 40px 20px 0; }
-.productsList ul li .productsThumb { width: 100%; height: auto; max-height: 245px; overflow: hidden; position: relative; }
-.productsList ul li .productsThumb img { width: 100%; height: auto; display: block; }
+.productsList ul li .productsThumb { width: 100%; height: 245px; overflow: hidden; position: relative; background: #fff; }
+.productsList ul li .productsThumb img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .onBackground { background: rgba(36,61,123,0.35); width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: none; }
 .onBackground a { display: block; width: 100%; height: 100%; color: #fff; font-size: 2.25em; }
 .productsList ul li .productsThumb .onBackground span { display: block; width: 40px; height: 40px; background: #d24d31; background: var(--brand-red); text-align: center; line-height: 35px; position: absolute; top: 50%; left: 50%; margin-left: -20px; margin-top: -20px; border-radius: 5px; opacity: 0.9; }
