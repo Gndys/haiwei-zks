@@ -26,6 +26,30 @@ img.alignright { float: right; margin: 0 0 15px 15px; }
 #header { background: #fff; width: 100%; border-bottom: 2px solid #243d7b; border-bottom: 2px solid var(--brand-blue); padding: 31px 0; transition: all 0.5s ease-in 0s; }
 #header.fixed { position: fixed; left: 0; top: 0; z-index: 999; transition: all 0.5s ease-in 0s; padding: 10px 0; }
 .header { position: relative; }
+.headerWx { float: right; width: 36px; height: 36px; margin-top: 1px; position: relative; z-index: 10; }
+.headerWxBtn { display: flex; width: 36px; height: 36px; border-radius: 50%; background: #243d7b; background: var(--brand-blue); color: #fff; align-items: center; justify-content: center; line-height: 1; font-size: 12px; font-weight: 700; letter-spacing: 0; }
+.headerWxBtn:hover { background: #1f3366; background: var(--brand-blue-hover); }
+.headerWxPop { position: absolute; right: 0; top: 44px; width: 160px; padding: 10px; background: #fff; border: 1px solid #eee; border-radius: 10px; box-shadow: 0 10px 28px rgba(0,0,0,.12); opacity: 0; visibility: hidden; transform: translateY(-6px); transition: all 0.15s ease; z-index: 9999; }
+.headerWx:hover .headerWxPop { opacity: 1; visibility: visible; transform: translateY(0); }
+.headerWxPop img { display: block; width: 100%; height: auto; }
+.headerWxText { margin-top: 8px; font-size: 12px; color: #666; text-align: center; }
+.qrCard { width: 240px; max-width: 100%; margin: 0 auto; padding: 12px 10px; background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,.08); text-align: center; }
+.qrCard img { display: block; width: 100% !important; height: auto !important; }
+.qrCard p { margin-top: 8px; color: #666; font-size: 0.8125em; }
+#contactUs { display: flex; flex-wrap: wrap; gap: 34px 28px; align-items: flex-start; box-sizing: border-box; }
+#contactUs .allTitle { flex: 0 0 100%; width: 100%; margin-bottom: 10px; }
+#contactUs .contactForm, #contactUs .contactInfo { float: none; width: auto; }
+#contactUs .contactForm { order: 1; flex: 0 0 44%; max-width: 44%; min-width: 320px; padding-left: 0; }
+#contactUs .contactInfo { order: 2; flex: 0 0 52%; max-width: 52%; min-width: 320px; display: grid; grid-template-columns: 1fr 150px; grid-template-areas: "con qr" "h3 qr" "list qr"; column-gap: 60px; row-gap: 14px; }
+#contactUs .contactInfo .contactCon { grid-area: con; margin-bottom: 0; }
+#contactUs .contactInfo h3 { grid-area: h3; margin-bottom: 0; }
+#contactUs .contactInfo > .contactTxt:not(.contactCon) { grid-area: list; margin-bottom: 0; }
+#contactUs .contactInfo .contactQr { grid-area: qr; justify-self: end; padding-top: 6px; }
+#contactUs .contactInfo .contactQr .qrCard { width: 150px; margin: 0; padding: 10px 10px; }
+#contactUs .contactInfo .contactQr .qrCard p { font-size: 0.75em; }
+body.page-contact .post { position: relative; }
+body.page-contact .post .entry { padding-right: 320px; }
+body.page-contact .contactPageQr { position: absolute; right: 0; top: 72px; width: 280px; }
 .header, .breadcrumb, #service, .aboutUs, #products, #news, .showcase, #contactUs, .footer, #container, #productsBox { width: 1200px; margin: 0 auto; }
 .header .searchBtn { background: url(../images/search.png) no-repeat center 12px; width: 40px; height: 36px; float: right; margin-top: 1px; display: inline-block; cursor: pointer; }
 .header .searchBtn a { display: block; width: 40px; height: 36px; }
@@ -367,6 +391,8 @@ ul.bxslider a{cursor:default}
 .footRight, .footLeft { width: 100%; float: none; text-align: center; clear: both; }
 .sidebar { display: none; }
 .main { float: none; width: 100%; }
+body.page-contact .post .entry { padding-right: 0; }
+body.page-contact .contactPageQr { position: static; width: 260px; margin: 0 auto 20px; }
 }
 @media only screen and (max-width:640px) {
 .breadcrumb .right h3 { display: none; }
@@ -374,6 +400,12 @@ ul.bxslider a{cursor:default}
 .productsList ul li { width: 43.5484%; margin: 20px 6.45162% 20px 0px; }
 .contactForm, .contactInfo { float: none; width: 100%; padding: 0; }
 .contactForm textarea { width: 90%; padding: 10px 4%; }
+#contactUs { display: block; }
+#contactUs .allTitle { margin-bottom: 20px; }
+#contactUs .contactForm, #contactUs .contactInfo { max-width: none; min-width: 0; }
+#contactUs .contactInfo { display: grid; grid-template-columns: 1fr; grid-template-areas: "con" "qr" "h3" "list"; row-gap: 12px; }
+#contactUs .contactInfo .contactQr { justify-self: center; }
+#contactUs .contactInfo .contactQr .qrCard { width: 220px; }
 .productsList ul .clear { clear: none; }
 .productsList ul .clearfix { clear: both; }
 }
