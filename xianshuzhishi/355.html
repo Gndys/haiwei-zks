@@ -1,488 +1,391 @@
 <!DOCTYPE html>
-
-<html xmlns:wb="http://open.weibo.com/wb">
-
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
-
-<meta charset="UTF-8"/>
-
-<meta name="author" content="kaifatang.com" />
-
-<meta http-equiv="Cache-Control" content="no-transform"/>
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-
-<meta http-equiv="Content-Language" content="zh-CN"/>
-
-<title>汽车电线束导线的颜色代码识别</title>
-
-<meta name="keywords" content="汽车线束,汽车线束生产厂家,汽车线束加工厂,线束加工,线束厂,汽车线束设计,汽车线束生产流程,汽车发动机线束,挖掘机线束,电动汽车线束,新能源汽车线束,汽车线束公司,汽车线束流水线,汽车线束生产线">
-
-<meta name="description" content="汽车电线束导线的颜色代码识别1、低压导线普通低压导线：普通低压导线为铜质多丝软线。导线的选择主要根据用电设备的工作电流进行选择，但最小不得小于0.5mm2。起动电缆：起动电缆用于连接蓄电池与起动机开关的主接线柱，截面有25、35、50、70mm2等多种规格，允许电流达到500-1000A。为了保证">
-
-<link rel="stylesheet" type="text/css" href="../style/css/style.css" media="screen"/>
-
-<link rel="stylesheet" type="text/css" href="../style/css/font-awesome.min.css" media="screen"/>
-
+<meta charset="utf-8"/>
+<meta content="kaifatang.com" name="author"/>
+<meta content="no-transform" http-equiv="Cache-Control"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
+<meta content="en" http-equiv="Content-Language"/>
+<title>Color code identification of automotive electrical wiring harness wires</title>
+<meta content="Automotive Wiring Harness,Automotive Wiring Harness Manufacturer,Automotive Wiring Harness Processing Plant,Wiring Harness Processing,Wiring Harness Factory,Automotive Wiring Harness design,Automotive Wiring Harness production process,Automotive Engine Wiring Harness,Excavator Wiring Harness,Electric Vehicle Wiring Harness,EV Harness,Automotive Wiring Harness company,Automotive WiringHarness assembly line,Automotive Wiring Harness production line" name="keywords"/>
+<meta content="Color code identification of automobile electrical wiring harness wires 1. Low-voltage wires Ordinary low-voltage wires: Ordinary low-voltage wires are copper multifilament soft wires.The selection of wires is mainly based on the working current of the electrical equipment, but the minimum should not be less than 0.5mm2.Starting cable: The starting cable is used to connect the battery and the main terminal of the starter switch. The cross-section has various specifications such as 25, 35, 50, 70mm2, etc., and the allowed current reaches 500-1000A.in order to ensure" name="description"/>
+<link href="../style/css/style.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="../style/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css"/>
 <script src="../style/js/common.js" type="text/javascript"></script>
-
 <script src="../style/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-
-<script src="../style/js/wb.js" type="text/javascript" charset="utf-8"></script>
-
+<script charset="utf-8" src="../style/js/wb.js" type="text/javascript"></script>
 </head>
-
-<body oncontextmenu=self.event.returnValue=false onselectstart="return false" ondragstart="return false">
-
+<body oncontextmenu="self.event.returnValue=false" ondragstart="return false" onselectstart="return false">
 <div id="header">
-
-  <div class="header">
-
-    <div class="logo"><a href="../index.html" title="汽车线束_汽车线束生产厂家_汽车线束加工厂-温州市威曼汽车线束有限公司"><img src="../static/upload/image/20211218/1639785870415953.png" alt="汽车线束_汽车线束生产厂家_汽车线束加工厂-温州市威曼汽车线束有限公司"/></a></div>
-
-    <div class="searchBtn"><a name="search"></a></div>
-
-   
-
-    <div class="menu" id="menu">
-
-      <ul>
-
-        <li><a href="../index.html" id="home" >网站首页</a></li>
-
-        
-
-        <li><a href="../xianshuchangjia/index.html"  >关于我们</a></li>
-
-        
-
-        <li><a href="../jishuzhichi/index.html"  class="current"  >技术支持</a></li>
-
-        
-
-        <li><a href="../xianshu/index.html"  >产品中心</a></li>
-
-        
-
-        <li><a href="../chejian/index.html"  >生产车间</a></li>
-
-        
-
-        <li><a href="../jiagongliucheng/index.html"  >加工流程</a></li>
-
-        
-
-        <li><a href="../xianshuchangjialxdh/index.html"  >联系我们</a></li>
-
-        
-
-      </ul>
-
-    </div>
-
-  </div>
-
-  <div class="clear"></div>
-
+<div class="header">
+<div class="logo"><a href="../index.html" title="Automotive Wiring Harness_Automotive Wiring Harness Manufacturer_Automotive Wiring Harness Processing Plant-Wenzhou Weiman Automotive Wiring Harness Co., Ltd."><img alt="Automotive Wiring Harness_Automotive Wiring Harness Manufacturer_Automotive Wiring Harness Processing Plant-Wenzhou Weiman Automotive Wiring Harness Co., Ltd." src="../static/upload/image/20211218/1639785870415953.png"/></a></div>
+<div class="searchBtn"><a name="search"></a></div>
+<div class="menu" id="menu">
+<ul>
+<li><a href="../index.html" id="home">Home</a></li>
+<li><a href="../xianshuchangjia/index.html">About Us</a></li>
+<li><a class="current" href="../jishuzhichi/index.html">Support</a></li>
+<li><a href="../xianshu/index.html">Products</a></li>
+<li><a href="../chejian/index.html">Workshop</a></li>
+<li><a href="../jiagongliucheng/index.html">Process</a></li>
+<li><a href="../xianshuchangjialxdh/index.html">Contact Us</a></li>
+</ul>
 </div>
-
-
-
+</div>
+<div class="clear"></div>
+</div>
 <div style="background:url(../static/upload/image/20211212/1639290744499233.jpg) no-repeat center; background-size:cover; height:161px"></div>
-
 <div id="breadcrumb">
-
-  <div class="breadcrumb">
-
-    <div class="left">
-
-      <h3>当前位置：</h3>
-
-      <div class="notice"><a href="../index.html">首页</a>&nbsp;-&nbsp;<a href="../jishuzhichi/index.html">技术支持</a>&nbsp;-&nbsp;<a href="index.html">相关知识</a></div>
-
-    </div>
-
-  </div>
-
+<div class="breadcrumb">
+<div class="left">
+<h3>Current location:</h3>
+<div class="notice"><a href="../index.html">front page</a>&nbsp;-&nbsp;<a href="../jishuzhichi/index.html">Support</a>&nbsp;-&nbsp;<a href="index.html">Relevant knowledge</a></div>
 </div>
-
+</div>
+</div>
 <div id="container">
 
   ﻿<div class="sidebar">
+<div class="sideMenu">
+<h3><a href="../jishuzhichi/index.html" title="Support">Support</a></h3>
+<ul>
+<li><a class="hover" href="index.html" title="Relevant knowledge">Relevant knowledge</a></li>
+<li><a href="../news/index.html" title="News Center">News Center</a></li>
+</ul>
+</div>
+<div class="widget">
+<h3>contact information</h3>
+<div class="textwidget">
+<p> <b>Wenzhou Weiman Automotive Wiring Harness Co., Ltd.</b></p>
+<p><b>Contact person:</b>Yu Haiwei</p>
+<p><b>Service hotline: </b>15167709519</p>
+<p><b>Email: </b>haiwei2023@aliyun.com</p>
+</div>
+</div>
+</div>
+<div class="main">
+<div class="post lightbox">
+<h2>Color code identification of automotive electrical wiring harness wires</h2>
+<div class="postmeta"> <span>Update date: 2021-12-21 14:28:06</span> <span>Views: 17426</span></div>
+<div class="entry">
+<div><span style="font-size:16px;">Color code identification of automotive electrical wiring harness wires&nbsp;</span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">1. Low voltage wire&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;Ordinary low-voltage wires: Ordinary low-voltage wires are copper multifilament soft wires.The selection of wires is mainly based on the working current of the electrical equipment, but the minimum should not be less than 0.5mm2.&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;Starting cable: The starting cable is used to connect the battery and the main terminal of the starter switch. The cross-section has various specifications such as 25, 35, 50, 70mm2, etc., and the allowed current reaches 500-1000A.In order to ensure that the starter works normally and sends out sufficient power, it is required that the current and voltage drop of the 100A on the line should not exceed 0.1-0.15V.&nbsp;</span><br/>
 
-    <div class="sideMenu"> 
+	&nbsp;</div><div><span style="font-size:16px;">&nbsp;Shielded wire: Shielded wire is also called coaxial cable. Its function is to isolate the wire from the external magnetic field and prevent the wire from being interfered by the external magnetic field. It is especially effective in preventing high-voltage ignition interference of gasoline engines.Shielded wires are often used in low-voltage weak signal lines, such as antenna connection lines and communication between various sensors and electronic control units. They are commonly used in detonation signal circuits, oxygen sensor signal circuits, etc.&nbsp;</span><br/>
 
-      <h3><a href="../jishuzhichi/index.html" title="技术支持">技术支持</a></h3>
+	&nbsp;</div><div><span style="font-size:16px;">&nbsp;Battery ground cable: The battery ground wire is a flat soft copper wire braided from copper wire. The lengths of ground wires commonly used in domestic automobiles are 300, 450, 600 and 760mm.&nbsp;</span><br/>
 
-      
+	&nbsp;</div><div><strong style="color: rgb(0, 0, 255);"><span style="font-size:16px;">Color code identification of automotive electrical wiring harness wires&nbsp;</span></strong></div><div><img alt="Figure 1 Recommended cross-sectional area of ​​automotive electrical circuit wires" height="198" src="../static/upload/image/20211221/1640068488155775.jpg" style="width: 579px; height: 198px;" title="Figure 1 Recommended cross-sectional area of ​​automotive electrical circuit wires" width="579"/></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">Color code identification of automotive electrical wiring harness wires&nbsp;</span></strong></span></div><div><img alt="Figure 2 Colors and codes of low-voltage wires for automobiles" height="265" src="../static/upload/image/20211221/1640068492695294.jpg" style="width: 579px; height: 265px;" title="Figure 2 Colors and codes of low-voltage wires for automobiles" width="579"/></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">Color code identification of automotive electrical wiring harness wires&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;<img alt="Figure 3 Bora car dashboard" height="265" src="../static/upload/image/20211221/1640068496818263.jpg" style="width: 577px; height: 265px;" title="Figure 3 Bora car dashboard" width="577"/></span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">2. High voltage lines&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;High-voltage wires are used to transmit high-voltage electricity. Since the working voltage is very high and the current intensity is small, the insulation coating of the high-voltage wires is very thick and has good voltage resistance, but the cross-sectional area of ​​the wire core is very small.There are two types of high-voltage wires for domestic automobiles: copper core wires and damping wires.&nbsp;</span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">3、Automotive Wiring Harness&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;Wiring Harness: In order to avoid clutter, facilitate installation, and protect the insulation of the wires, all wires on the car (except for high-voltage wires) are generally braided with cotton yarn or half-wound with thin polyvinyl chloride tape to bundle wires of different specifications.&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;The composition of Wiring Harness: consists of wires, terminals, connectors, sheaths, etc.&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;Terminal: Generally made of brass, copper, and lead materials, its connection with the wire is made by cold riveting.&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;Plug connector: used for connection between wires. In order to ensure reliable connection, primary locking and secondary locking devices are generally used.&nbsp;</span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">&nbsp;Things to note when installing Wiring Harness:&nbsp;</span></strong></span></div><div><span style="font-size:16px;">l Wiring Harness should be fixed with circlips or trip nails to prevent loosening and wear.&nbsp;</span></div><div><span style="font-size:16px;">l The Wiring Harness should not be pulled too tight, especially at corners.&nbsp;</span></div><div><span style="font-size:16px;">l When connecting electrical appliances, they should be connected to the electrical appliances respectively according to the specifications of the connector and the color of the wires or the color of the casing at the joint. If it is not easy to distinguish the ends of the wires, you can generally use a test light to separate them.&nbsp; &nbsp;&nbsp;</span><br/><br/><span style="font-size:16px;">Domestic Wiring Harness color code:</span><br/><br/><table><tbody><tr class="firstRow"><th class="tg-amwm"><span style="font-size:16px;">English</span></th><th class="tg-amwm"><span style="font-size:16px;">Chinese</span></th><th class="tg-amwm"><span style="font-size:16px;">abbreviation</span></th><th class="tg-amwm"><span style="font-size:16px;">English</span></th><th class="tg-amwm"><span style="font-size:16px;">Chinese</span></th><th class="tg-amwm"><span style="font-size:16px;">abbreviation</span></th></tr><tr><td><span style="font-size:16px;">Black</span></td><td><span style="font-size:16px;">black</span></td><td><span style="font-size:16px;">B</span></td><td><span style="font-size:16px;">Orange</span></td><td><span style="font-size:16px;">orange color</span></td><td><span style="font-size:16px;">O</span></td></tr><tr><td><span style="font-size:16px;">White</span></td><td><span style="font-size:16px;">White</span></td><td><span style="font-size:16px;">W</span></td><td><span style="font-size:16px;">Yellow</span></td><td><span style="font-size:16px;">yellow</span></td><td><span style="font-size:16px;">Y</span></td></tr><tr><td><span style="font-size:16px;">Gray</span></td><td><span style="font-size:16px;">grey</span></td><td><span style="font-size:16px;">Gr</span></td><td><span style="font-size:16px;">Green</span></td><td><span style="font-size:16px;">green</span></td><td><span style="font-size:16px;">G</span></td></tr><tr><td><span style="font-size:16px;">Brown</span></td><td><span style="font-size:16px;">brown</span></td><td><span style="font-size:16px;">Br</span></td><td><span style="font-size:16px;">Blue</span></td><td><span style="font-size:16px;">blue</span></td><td><span style="font-size:16px;">Bl</span></td></tr><tr><td><span style="font-size:16px;">Red</span></td><td><span style="font-size:16px;">red</span></td><td><span style="font-size:16px;">R</span></td><td><span style="font-size:16px;">Violet</span></td><td><span style="font-size:16px;">Purple</span></td><td><span style="font-size:16px;">V</span></td></tr></tbody></table><br/><span style="font-size:16px;">American Automotive Wiring Harness Color Code</span><table><tbody><tr class="firstRow"><td>
 
-      <ul>
+					abbreviation</td><td>
 
-        
+					English</td><td>
 
-        <li><a class="hover" href="index.html" title="相关知识" >相关知识</a></li>
+					Chinese</td><td>
 
-        
+					abbreviation</td><td>
 
-        <li><a href="../news/index.html" title="新闻中心" >新闻中心</a></li>
+					English</td><td>
 
-        
-
-      </ul>
-
-    </div>
-
-    <div class="widget">
-
-      <h3>联系信息</h3>
-
-      <div class="textwidget">
-
-	      <p> <b>温州市威曼汽车线束有限公司</b></p>
-
-        <p><b>联系人：</b>余海威</p>
-
-        <p><b>服务电话： </b>15167709519</p>
-
-        <p><b>电子邮箱： </b>haiwei2023@aliyun.com</p>
-
-        
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="main">
-
-    <div class="post lightbox">
-
-      <h2>汽车电线束导线的颜色代码识别</h2>
-
-      <div class="postmeta"> <span>更新日期：2021-12-21 14:28:06</span>  <span>浏览：17426</span></div>
-
-      <div class="entry">
-
-         <div><span style="font-size:16px;">汽车电线束导线的颜色代码识别&nbsp;</span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">1、低压导线&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;普通低压导线：普通低压导线为铜质多丝软线。导线的选择主要根据用电设备的工作电流进行选择，但最小不得小于0.5mm2。&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;起动电缆：起动电缆用于连接蓄电池与起动机开关的主接线柱，截面有25、35、50、70mm2等多种规格，允许电流达到500-1000A。为了保证起动机正常工作，并发出足够的功率，要求在线路上第100A的电流电压降不得超过0.1-0.15V。&nbsp;</span><br/>
-
-	&nbsp;</div><div><span style="font-size:16px;">&nbsp;屏蔽线：屏蔽线也称同轴电缆，其作用是将导线与外界的磁场隔离，避免导线受外界磁场影响而产生干扰，尤其在防止汽油机高压点火干扰方面非常有效。屏蔽线常用于低压微弱信号线路，如天线连接线及各种传感器和电子控制单元之间的通讯，在爆震信号电路、氧传感器信号电路等处使用普遍。&nbsp;</span><br/>
-
-	&nbsp;</div><div><span style="font-size:16px;">&nbsp;蓄电池搭铁电缆：蓄电池的搭铁线是由铜丝编织而成的扁形软铜线，国产汽车常用的搭铁线长度有300、450、600、760mm四种。&nbsp;</span><br/>
-
-	&nbsp;</div><div><strong style="color: rgb(0, 0, 255);"><span style="font-size:16px;">汽车电线束导线的颜色代码识别&nbsp;</span></strong></div><div><img src="../static/upload/image/20211221/1640068488155775.jpg" title="图1 汽车电系电路导线截面积推荐值 " alt="图1 汽车电系电路导线截面积推荐值 " width="579" height="198" style="width: 579px; height: 198px;"/></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">汽车电线束导线的颜色代码识别&nbsp;</span></strong></span></div><div><img src="../static/upload/image/20211221/1640068492695294.jpg" title=" 图2 汽车用低压导线的颜色和代号 " alt=" 图2 汽车用低压导线的颜色和代号 " width="579" height="265" style="width: 579px; height: 265px;"/></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">汽车电线束导线的颜色代码识别&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;<img src="../static/upload/image/20211221/1640068496818263.jpg" title="图3宝来汽车仪表板 " alt="图3宝来汽车仪表板 " width="577" height="265" style="width: 577px; height: 265px;"/></span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">2、高压线&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;高压导线用来传送高压电，由于工作电压很高，电流强度较小，因此高压导线的绝缘包层很厚，耐压性能很好，但线芯截面积很小。国产汽车用高压导线有铜芯线和阻尼线两种。&nbsp;</span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">3、汽车线束&nbsp;</span></strong></span></div><div><span style="font-size:16px;">&nbsp;线束：汽车上的全车线路（除高压线之外），为了不零乱，安装方便和保护导线的绝缘，一般都将同路的不同规格的导线用绵纱编织或用薄聚氯乙烯带半叠缠绕包扎成束。&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;线束的组成：由导线、端子、插接器、护套等组成。&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;端子：一般由黄铜、紫铜、铅材料制成，它与导线的连接采用冷铆压合而成。&nbsp;</span></div><div><span style="font-size:16px;">&nbsp;插接器：用于导线之间的连接，为了保证连接可靠，一般都用一次锁紧、二次锁紧装置。&nbsp;</span></div><div><span style="color:#0000ff;"><strong><span style="font-size:16px;">&nbsp;安装线束注意事项：&nbsp;</span></strong></span></div><div><span style="font-size:16px;">l 线束应用卡簧或绊钉固定，以免松动磨坏。&nbsp;</span></div><div><span style="font-size:16px;">l 线束不可拉得过紧，尤其在拐弯处更要注意。&nbsp;</span></div><div><span style="font-size:16px;">l 连接电器时，应根据插接器的规格以及导线的颜色或接头处套管的颜色，分别接于电器上，若不容易辨别导线的头尾时，一般可用试灯分。&nbsp; &nbsp;&nbsp;</span><br/><br/><span style="font-size:16px;">国产旗下线束颜色代码：</span><br/><br/><table><tbody><tr class="firstRow"><th class="tg-amwm"><span style="font-size:16px;">英文</span></th><th class="tg-amwm"><span style="font-size:16px;">中文</span></th><th class="tg-amwm"><span style="font-size:16px;">缩写</span></th><th class="tg-amwm"><span style="font-size:16px;">英文</span></th><th class="tg-amwm"><span style="font-size:16px;">中文</span></th><th class="tg-amwm"><span style="font-size:16px;">缩写</span></th></tr><tr><td><span style="font-size:16px;">Black</span></td><td><span style="font-size:16px;">黑色</span></td><td><span style="font-size:16px;">B</span></td><td><span style="font-size:16px;">Orange</span></td><td><span style="font-size:16px;">橙色</span></td><td><span style="font-size:16px;">O</span></td></tr><tr><td><span style="font-size:16px;">White</span></td><td><span style="font-size:16px;">白色</span></td><td><span style="font-size:16px;">W</span></td><td><span style="font-size:16px;">Yellow</span></td><td><span style="font-size:16px;">黄色</span></td><td><span style="font-size:16px;">Y</span></td></tr><tr><td><span style="font-size:16px;">Gray</span></td><td><span style="font-size:16px;">灰色</span></td><td><span style="font-size:16px;">Gr</span></td><td><span style="font-size:16px;">Green</span></td><td><span style="font-size:16px;">绿色</span></td><td><span style="font-size:16px;">G</span></td></tr><tr><td><span style="font-size:16px;">Brown</span></td><td><span style="font-size:16px;">棕色</span></td><td><span style="font-size:16px;">Br</span></td><td><span style="font-size:16px;">Blue</span></td><td><span style="font-size:16px;">蓝色</span></td><td><span style="font-size:16px;">Bl</span></td></tr><tr><td><span style="font-size:16px;">Red</span></td><td><span style="font-size:16px;">红色</span></td><td><span style="font-size:16px;">R</span></td><td><span style="font-size:16px;">Violet</span></td><td><span style="font-size:16px;">紫色</span></td><td><span style="font-size:16px;">V</span></td></tr></tbody></table><br/><span style="font-size:16px;">美国汽车线束颜色代码</span><table><tbody><tr class="firstRow"><td>
-
-					缩 写</td><td>
-
-					英 文</td><td>
-
-					中 文</td><td>
-
-					缩 写</td><td>
-
-					英 文</td><td>
-
-					中 文</td></tr><tr><td>
+					Chinese</td></tr><tr><td>
 
 					Bk</td><td>
 
 					Black</td><td>
 
-					黑 色</td><td>
+					black</td><td>
 
 					Bu</td><td>
 
 					Blue</td><td>
 
-					蓝 色</td></tr><tr><td>
+					blue</td></tr><tr><td>
 
 					BN</td><td>
 
 					Brown</td><td>
 
-					棕 色</td><td>
+					brown</td><td>
 
 					CR</td><td>
 
 					Clear</td><td>
 
-					透 明</td></tr><tr><td>
+					transparent</td></tr><tr><td>
 
 					Dk Bu</td><td>
 
 					Dark Blue</td><td>
 
-					深蓝色</td><td>
+					dark blue</td><td>
 
 					Dk GN</td><td>
 
 					Dark Green</td><td>
 
-					深绿色</td></tr><tr><td>
+					dark green</td></tr><tr><td>
 
 					GN</td><td>
 
 					Green</td><td>
 
-					绿 色</td><td>
+					green</td><td>
 
 					GY</td><td>
 
 					Gray</td><td>
 
-					灰 色</td></tr><tr><td>
+					grey</td></tr><tr><td>
 
 					LT Bu</td><td>
 
 					Light Blue</td><td>
 
-					浅蓝色</td><td>
+					light blue</td><td>
 
 					LT GN</td><td>
 
 					Light Green</td><td>
 
-					浅绿色</td></tr><tr><td>
+					light green</td></tr><tr><td>
 
 					OG</td><td>
 
 					Orange</td><td>
 
-					橙 色</td><td>
+					orange color</td><td>
 
 					Pk</td><td>
 
 					Pink</td><td>
 
-					粉红色</td></tr><tr><td>
+					pink</td></tr><tr><td>
 
 					PL</td><td>
 
 					Purple</td><td>
 
-					紫 色</td><td>
+					Purple</td><td>
 
 					RD</td><td>
 
 					Red</td><td>
 
-					红 色</td></tr><tr><td>
+					red</td></tr><tr><td>
 
 					TN</td><td>
 
 					Tan</td><td>
 
-					褐 色</td><td>
+					brown</td><td>
 
 					VI</td><td>
 
 					Violet</td><td>
 
-					粉紫色</td></tr><tr><td>
+					pink purple</td></tr><tr><td>
 
 					WT</td><td>
 
 					White</td><td>
 
-					白 色</td><td>
+					White</td><td>
 
 					YL</td><td>
 
 					Yellow</td><td>
 
-					黄 色</td></tr></tbody></table>&nbsp;</div><p><span style="font-size:16px;">欧洲汽车线束颜色代码</span></p><table><tbody><tr class="firstRow"><td>
+					yellow</td></tr></tbody></table>&nbsp;</div><p><span style="font-size:16px;">European Automotive Wiring Harness Color Codes</span></p><table><tbody><tr class="firstRow"><td>
 
-				缩 写</td><td>
+				abbreviation</td><td>
 
-				英 文</td><td>
+				English</td><td>
 
-				中 文</td><td>
+				Chinese</td><td>
 
-				缩 写</td><td>
+				abbreviation</td><td>
 
-				英 文</td><td>
+				English</td><td>
 
-				中 文</td></tr><tr><td>
+				Chinese</td></tr><tr><td>
 
 				BL</td><td>
 
 				Blue</td><td>
 
-				蓝 色</td><td>
+				blue</td><td>
 
 				BR</td><td>
 
 				Brown</td><td>
 
-				棕 色</td></tr><tr><td>
+				brown</td></tr><tr><td>
 
 				EL</td><td>
 
 				Gream</td><td>
 
-				乳白色</td><td>
+				milky</td><td>
 
 				GE</td><td>
 
 				Yellow</td><td>
 
-				黄 色</td></tr><tr><td>
+				yellow</td></tr><tr><td>
 
 				GN</td><td>
 
 				Green</td><td>
 
-				绿 色</td><td>
+				green</td><td>
 
 				GR</td><td>
 
 				Gray</td><td>
 
-				灰 色</td></tr><tr><td>
+				grey</td></tr><tr><td>
 
 				M</td><td>
 
 				Maroon</td><td>
 
-				褐红色</td><td>
+				maroon</td><td>
 
 				NF</td><td>
 
 				Neutral</td><td>
 
-				浅灰色</td></tr><tr><td>
+				light gray</td></tr><tr><td>
 
 				OG</td><td>
 
 				Orange</td><td>
 
-				橙 色</td><td>
+				orange color</td><td>
 
 				RS</td><td>
 
 				Pink</td><td>
 
-				粉红色</td></tr><tr><td>
+				pink</td></tr><tr><td>
 
 				RT</td><td>
 
 				Red</td><td>
 
-				红 色</td><td>
+				red</td><td>
 
 				SW</td><td>
 
 				Black</td><td>
 
-				黑 色</td></tr><tr><td>
+				black</td></tr><tr><td>
 
 				VI</td><td>
 
 				Violet</td><td>
 
-				粉紫色</td><td>
+				pink purple</td><td>
 
 				WS</td><td>
 
 				White</td><td>
 
-				白 色</td></tr><tr><td>
+				White</td></tr><tr><td>
 
 				HBL</td><td>
 
 				Light Blue</td><td>
 
-				浅蓝色</td><td>
+				light blue</td><td>
 
 				HGN</td><td>
 
 				Light Green</td><td>
 
-				浅绿色</td></tr></tbody></table><p><span style="font-size:16px;">汽车电路中各系统低压电线主色含义</span></p><table><tbody><tr class="firstRow"><td>
+				light green</td></tr></tbody></table><p><span style="font-size:16px;">The meaning of the main colors of low-voltage wires in each system in automobile circuits</span></p><table><tbody><tr class="firstRow"><td>
 
-				序 号</td><td>
+				Serial number</td><td>
 
-				系 统 名 称</td><td>
+				System name</td><td>
 
-				电线主色</td><td>
+				Main color of wire</td><td>
 
-				代 号</td></tr><tr><td>
+				Code name</td></tr><tr><td>
 
 				1</td><td>
 
-				电气装置接地线</td><td>
+				Electrical installation ground wire</td><td>
 
-				黑</td><td>
+				black</td><td>
 
 				B</td></tr><tr><td>
 
 				2</td><td>
 
-				点火、启动系统</td><td>
+				Ignition and starting system</td><td>
 
-				白</td><td>
+				white</td><td>
 
 				W</td></tr><tr><td>
 
 				3</td><td>
 
-				电源系统</td><td>
+				Power system</td><td>
 
-				红</td><td>
+				red</td><td>
 
 				R</td></tr><tr><td>
 
 				4</td><td>
 
-				灯光信号系统(包括转向指示灯)</td><td>
+				Light signaling system (including turn indicators)</td><td>
 
-				绿</td><td>
+				green</td><td>
 
 				G</td></tr><tr><td>
 
 				5</td><td>
 
-				防空灯系统及车身内部照明系统</td><td>
+				Anti-aircraft light system and body interior lighting system</td><td>
 
-				黄</td><td>
+				yellow</td><td>
 
 				Y</td></tr><tr><td>
 
 				6</td><td>
 
-				仪表及报警指示系统和喇叭系统</td><td>
+				Instrument and alarm indication system and horn system</td><td>
 
-				棕</td><td>
+				Brown</td><td>
 
 				Br</td></tr><tr><td>
 
 				7</td><td>
 
-				前照灯、雾灯等外部灯光照明系统</td><td>
+				Headlights, fog lights and other exterior lighting systems</td><td>
 
-				蓝</td><td>
+				blue</td><td>
 
 				BL</td></tr><tr><td>
 
 				8</td><td>
 
-				各种辅助电动机及电气操纵系统</td><td>
+				Various auxiliary motors and electrical control systems</td><td>
 
-				灰</td><td>
+				Ash</td><td>
 
 				Gr</td></tr><tr><td>
 
 				9</td><td>
 
-				收放音机、电钟、点烟器等辅助装置系统</td><td>
+				Auxiliary device systems such as radios, electric clocks, and cigarette lighters</td><td>
 
-				紫</td><td>
+				purple</td><td>
 
-				V</td></tr></tbody></table><p><span style="font-size:16px;">汽车用低压导线允许载电流/A</span></p><table><tbody><tr class="firstRow"><td>
+				V</td></tr></tbody></table><p><span style="font-size:16px;">Allowable carrying current of low-voltage wires for automobiles/A</span></p><table><tbody><tr class="firstRow"><td>
 
-				铜心电线截面积/mm2</td><td>
+				Copper core wire cross-sectional area/mm2</td><td>
 
 				0.5</td><td>
 
@@ -508,7 +411,7 @@
 
 				50</td></tr><tr><td>
 
-				载流量60%</td><td>
+				Carrying capacity 60%</td><td>
 
 				7.5</td><td>
 
@@ -534,7 +437,7 @@
 
 				129</td></tr><tr><td>
 
-				载流量100%</td><td>
+				Ampacity 100%</td><td>
 
 				12.5</td><td>
 
@@ -558,15 +461,8 @@
 
 				170</td><td>
 
-				215</td></tr></tbody></table><p><br/></p><br/><p style="font-size:12px;">声明：禁止复制或转载本站任何内容！</p>
-
-
-
-
-
-
-
-	  <script>
+				215</td></tr></tbody></table><p><br/></p><br/><p style="font-size:12px;">Disclaimer: Copying or reprinting any content on this site is prohibited!</p>
+<script>
 
   var play=document.getElementsByTagName('iframe');
 
@@ -579,201 +475,70 @@
 	}
 
 	</script>
-
-
-
 </div>
-
-      <div class="pn">
-
-        <p>上一篇：<a href="370.html">汽车线束导线的颜色代码识别</a></p>
-
-        <p>下一篇：<a href="330.html">汽车线束接点设计方法介绍！</a></p>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="pn">
+<p>Previous article:<a href="370.html">Automotive Wiring Harness Color Code Identification</a></p>
+<p>Next article:<a href="330.html">Introduction to Automotive Wiring Harness contact design method!</a></p>
 </div>
-
+</div>
+</div>
+</div>
 <div id="footer">
-
-  <div class="footLine"></div>
-
-  <div class="footer">
-
-    <div class="footLeft">
-
-      <div class="pageslist">
-
-        <ul>
-
-          <li><a href="../index.html">网站首页</a></li>
-
-          
-
-          <li><a href="../xianshuchangjia/index.html">关于我们</a></li>
-
-          
-
-          <li><a href="../jishuzhichi/index.html">技术支持</a></li>
-
-          
-
-          <li><a href="../xianshu/index.html">产品中心</a></li>
-
-          
-
-          <li><a href="../chejian/index.html">生产车间</a></li>
-
-          
-
-          <li><a href="../jiagongliucheng/index.html">加工流程</a></li>
-
-          
-
-          <li><a href="../xianshuchangjialxdh/index.html">联系我们</a></li>
-
-          
-
-        </ul>
-
-      </div>
-
-      <div class="friendlinks">
-
-        <ul>
-
-          <li><strong>友情链接：</strong></li>
-
-          
-
-          <li><a href="http://www.hjpinpai.com">汽车雨刷</a></li>
-
-          
-
-          <li><a href="http://www.czdpj.com">电瓶夹</a></li>
-
-          
-
-          <li><a href="http://www.foliejia.com">汽车滤清器</a></li>
-
-          
-
-          <li><a href="http://www.htqcdqc.com">汽车电瓶线</a></li>
-
-          
-
-          <li><a href="http://www.rqdxgym.cn">工业门</a></li>
-
-          
-
-          <li><a href="http://www.rqdonghao.com/">电缆轴配件</a></li>
-
-          
-
-          <li><a href="http://www.jingxinguolu.com">电缆轴盘</a></li>
-
-          
-
-          <li><a href="http://www.rqlengbagang.com">冷拔钢</a></li>
-
-          
-
-          <li><a href="http://www.zblqq.com">汽车滤清器</a></li>
-
-          
-
-          <li><a href="http://www.dianpingxian.com">电瓶线</a></li>
-
-          
-
-          <li><a href="http://www.rqfdmy.com">车库门</a></li>
-
-          
-
-          <li><a href="http://www.rqgym.cn">工业门</a></li>
-
-          
-
-          <li><a href="http://www.hbythg.cn/">硬脂酸锌</a></li>
-
-          
-
-          <li><a href="http://www.hbhyzp.com">沥青油</a></li>
-
-          
-
-        </ul>
-
-      </div>
-
-    </div>
-
-    <div class="footRight">
-
-      <div class="phone"> <i class="icon-phone"></i> <a href="javascript:;" rel="nofollow">15167709519</a> </div>
-
-      <div class="copyright">
-
-        <p>厂名：温州市威曼汽车线束有限公司（禁止复制或转载本站内容！部分资源来自网络，如若侵权联系删除。）</p>
-
-
-
-
-
-
-
-
-
-  <!--公安备案代码开始-->
-
-
-
-
-
-
-
-
-
-      </div>
-
-    </div>
-
-    <div class="clear"></div>
-
-  </div>
-
+<div class="footLine"></div>
+<div class="footer">
+<div class="footLeft">
+<div class="pageslist">
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../xianshuchangjia/index.html">About Us</a></li>
+<li><a href="../jishuzhichi/index.html">Support</a></li>
+<li><a href="../xianshu/index.html">Products</a></li>
+<li><a href="../chejian/index.html">Workshop</a></li>
+<li><a href="../jiagongliucheng/index.html">Process</a></li>
+<li><a href="../xianshuchangjialxdh/index.html">Contact Us</a></li>
+</ul>
 </div>
-
-<div id="backTop"> <a href="javascript:;" title="返回顶部"><i class="icon-arrow-up"></i></a> </div>
-
+<div class="friendlinks">
+<ul>
+<li><strong>Friendly links:</strong></li>
+<li><a href="http://www.hjpinpai.com">car wipers</a></li>
+<li><a href="http://www.czdpj.com">battery clip</a></li>
+<li><a href="http://www.foliejia.com">car filter</a></li>
+<li><a href="http://www.htqcdqc.com">car battery cable</a></li>
+<li><a href="http://www.rqdxgym.cn">industrial door</a></li>
+<li><a href="http://www.rqdonghao.com/">Cable shaft accessories</a></li>
+<li><a href="http://www.jingxinguolu.com">Cable reel</a></li>
+<li><a href="http://www.rqlengbagang.com">cold drawn steel</a></li>
+<li><a href="http://www.zblqq.com">car filter</a></li>
+<li><a href="http://www.dianpingxian.com">battery cable</a></li>
+<li><a href="http://www.rqfdmy.com">garage door</a></li>
+<li><a href="http://www.rqgym.cn">industrial door</a></li>
+<li><a href="http://www.hbythg.cn/">zinc stearate</a></li>
+<li><a href="http://www.hbhyzp.com">asphalt oil</a></li>
+</ul>
+</div>
+</div>
+<div class="footRight">
+<div class="phone"> <i class="icon-phone"></i> <a href="javascript:;" rel="nofollow">15167709519</a> </div>
+<div class="copyright">
+<p>Factory name: Wenzhou Weiman Automotive Wiring Harness Co., Ltd. (Copying or reprinting the content of this site is prohibited! Some resources come from the Internet. If there is any infringement, please contact us and delete it.)</p>
+<!--公安备案代码开始-->
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="backTop"> <a href="javascript:;" title="Back to top"><i class="icon-arrow-up"></i></a> </div>
 <div id="simplemodal-container"></div>
-
 <div id="searchbar">
-
-  <p>全站搜索</p>
-
-  <form onSubmit="return checkSearchForm()" action="/search/" method="get" name="">
-
-    <input type="text" name="keyword" id="edtSearch" class="text" value="输入搜索关键词" onBlur="if($(this).val() == ''){$(this).val('输入搜索关键词');}" onFocus="if($(this).val() == '输入搜索关键词'){$(this).val('');}" x-webkit-speech=""/>
-
-    <input type="submit" id="btnPost" class="submit" value="搜索"/>
-
-  </form>
-
+<p>Search the whole site</p>
+<form action="/search/" method="get" name="" onsubmit="return checkSearchForm()">
+<input class="text" id="edtSearch" name="keyword" onblur="if($(this).val() == ''){$(this).val('Enter search keywords');}" onfocus="if($(this).val() == 'Enter search keywords'){$(this).val('');}" type="text" value="Enter search keywords" x-webkit-speech=""/>
+<input class="submit" id="btnPost" type="submit" value="search"/>
+</form>
 </div>
-
-<script type="text/javascript" src="../style/js/responsiveslides-bxslider.min.js"></script> 
-
-<script type="text/javascript" src="../style/js/leonhere.js"></script> 
-
-<script type="text/javascript" src="../style/js/transform.js"></script> 
-
-
-
+<script src="../style/js/responsiveslides-bxslider.min.js" type="text/javascript"></script>
+<script src="../style/js/leonhere.js" type="text/javascript"></script>
+<script src="../style/js/transform.js" type="text/javascript"></script>
 </body>
-
 </html>

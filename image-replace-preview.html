@@ -1,10 +1,10 @@
-﻿<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>图片替换预览（原图 vs 替换图）</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Image replacement preview (original image vs replacement image)</title>
+<style>
     :root { --bg:#0b1220; --card:#0f1b33; --muted:#9db0d0; --text:#e7efff; --border:#203356; --accent:#6aa6ff; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; background: linear-gradient(180deg, #070b14, var(--bg)); color: var(--text); }
@@ -54,47 +54,43 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>图片替换预览（原图 vs 替换图）</h1>
-    <p>只做展示对比：左边是网站当前图片，右边是你“替换图片”文件夹里的候选图（含“居中裁剪”的模拟预览）。</p>
-  </header>
-
-  <main>
-    <div class="controls">
-      <div class="chip"><label>默认候选</label>
-        <select id="defaultSet">
-          <option value="suggested">按当前分配</option>
-          <option value="first">每组候选第1张</option>
-          <option value="none">不自动选择</option>
-        </select>
-      </div>
-      <div class="chip"><label><input type="checkbox" id="showCrop" checked> 显示“裁剪预览”</label></div>
-      <div class="chip"><label><input type="checkbox" id="showRaw" checked> 显示“原始比例”</label></div>
+<header>
+<h1>Image replacement preview (original image vs replacement image)</h1>
+<p>Just for display and comparison: on the left is the current image on the website, and on the right is the candidate image in your "Replace Image" folder (including a simulated preview of "center cropping").</p>
+</header>
+<main>
+<div class="controls">
+<div class="chip"><label>Default candidate</label>
+<select id="defaultSet">
+<option value="suggested">by current allocation</option>
+<option value="first">The 1st photo of each group of candidates</option>
+<option value="none">No automatic selection</option>
+</select>
+</div>
+<div class="chip"><label><input checked="" id="showCrop" type="checkbox"/> Show Crop Preview</label></div>
+<div class="chip"><label><input checked="" id="showRaw" type="checkbox"/> Show "original scale"</label></div>
+</div>
+<div class="warn">
+      Description: used here <code>object-fit: cover</code> To simulate the effect of "center cropping to match the target area".<br/>
+      You have confirmed:<b>Home page carousel image 1/2 not replaced</b>;The two replacement pictures originally used for the carousel are used for the two pictures in the "About Us" text.
     </div>
-
-    <div class="warn">
-      说明：这里用 <code>object-fit: cover</code> 来模拟“居中裁剪以匹配目标区域”的效果。<br/>
-      你已确认：<b>首页轮播图 1/2 不替换</b>；原本用于轮播的两张替换图用于“关于我们”正文两张图。
-    </div>
-
-    <div id="grid" class="grid" style="margin-top: 14px;"></div>
-  </main>
-
-  <script>
+<div class="grid" id="grid" style="margin-top: 14px;"></div>
+</main>
+<script>
     const replacements = [
-      { id: 'frontdesk', label: '前台/接待台', path: '替换图片/微信图片_20260104133849_336_77.png' },
-      { id: 'warehouse_01', label: '仓库/箱子堆放全景', path: '替换图片/微信图片_20260104133901_337_77.jpg' },
-      { id: 'warehouse_02', label: '仓库通道/货架', path: '替换图片/微信图片_20260104133905_338_77.jpg' },
+      { id: 'frontdesk', label: 'Front desk / reception', path: '替换图片/微信图片_20260104133849_336_77.png' },
+      { id: 'warehouse_01', label: 'Warehouse / stacked boxes panorama', path: '替换图片/微信图片_20260104133901_337_77.jpg' },
+      { id: 'warehouse_02', label: 'Warehouse aisle / shelves', path: '替换图片/微信图片_20260104133905_338_77.jpg' },
 
-      { id: 'workshop_01', label: '车间图 01（设备/产线）', path: '替换图片/车间生产图片/0ddb30c3b5070b0cc2080ed615e647cd.jpg' },
-      { id: 'workshop_02', label: '车间图 02（仓库/物料）', path: '替换图片/车间生产图片/218b561a4243b3fb3aa1f9e9b1e187cc.jpg' },
-      { id: 'workshop_03', label: '车间图 03（设备：BO WANG）', path: '替换图片/车间生产图片/4ed8c0534a876465cded552e3a3e8903.jpg' },
-      { id: 'workshop_04', label: '车间图 04（设备/产线）', path: '替换图片/车间生产图片/59c9fa008d4c67f9508df77acbadf140.jpg' },
-      { id: 'workshop_05', label: '车间图 05（绕线/线材）', path: '替换图片/车间生产图片/7a7cfb4b7ae81fa68a2005be8a23a4e5.jpg' },
-      { id: 'workshop_06', label: '车间图 06（检测/设备）', path: '替换图片/车间生产图片/8d700ccf31ec92e61e892064cb4da2e0.png' },
-      { id: 'workshop_07', label: '车间图 07（压接/设备）', path: '替换图片/车间生产图片/a58e422f7997d651964a052c1e3e613c.jpg' },
-      { id: 'workshop_08', label: '车间图 08（端子/设备）', path: '替换图片/车间生产图片/d735264731f963c751222081c3d76e11.png' },
-      { id: 'workshop_09', label: '车间图 09（装配流水线/工位）', path: '替换图片/车间生产图片/fa8c72dfd78ad517e000d460bf2e86de.png' },
+      { id: 'workshop_01', label: 'Workshop Photo 01 (Equipment/Production line)', path: '替换图片/车间生产图片/0ddb30c3b5070b0cc2080ed615e647cd.jpg' },
+      { id: 'workshop_02', label: 'Workshop Photo 02 (Warehouse/Materials)', path: '替换图片/车间生产图片/218b561a4243b3fb3aa1f9e9b1e187cc.jpg' },
+      { id: 'workshop_03', label: 'Workshop Photo 03 (Equipment: BO WANG)', path: '替换图片/车间生产图片/4ed8c0534a876465cded552e3a3e8903.jpg' },
+      { id: 'workshop_04', label: 'Workshop Photo 04 (Equipment/Production line)', path: '替换图片/车间生产图片/59c9fa008d4c67f9508df77acbadf140.jpg' },
+      { id: 'workshop_05', label: 'Workshop Photo 05 (Wire winding/Materials)', path: '替换图片/车间生产图片/7a7cfb4b7ae81fa68a2005be8a23a4e5.jpg' },
+      { id: 'workshop_06', label: 'Workshop Photo 06 (Inspection/Equipment)', path: '替换图片/车间生产图片/8d700ccf31ec92e61e892064cb4da2e0.png' },
+      { id: 'workshop_07', label: 'Workshop Photo 07 (Crimping/Equipment)', path: '替换图片/车间生产图片/a58e422f7997d651964a052c1e3e613c.jpg' },
+      { id: 'workshop_08', label: 'Workshop Photo 08 (Terminals/Equipment)', path: '替换图片/车间生产图片/d735264731f963c751222081c3d76e11.png' },
+      { id: 'workshop_09', label: 'Workshop Photo 09 (Assembly line/Workstations)', path: '替换图片/车间生产图片/fa8c72dfd78ad517e000d460bf2e86de.png' },
     ];
 
     const byId = Object.fromEntries(replacements.map(r => [r.id, r]));
@@ -102,7 +98,7 @@
     const targets = [
       {
         id: 'about_thumb',
-        label: '首页「关于我们」缩略图',
+        label: 'Home 'About Us' thumbnail',
         targetPath: 'static/upload/image/20211219/1639906395997251.jpg',
         w: 640, h: 425,
         candidates: ['frontdesk', 'workshop_09', 'workshop_01'],
@@ -111,7 +107,7 @@
 
       {
         id: 'about_body_1',
-        label: '关于我们页面正文图（第1张）',
+        label: 'About Us page body image (No. 1)',
         targetPath: 'static/upload/image/20211218/1639832844300946.jpg',
         w: 900, h: 675,
         candidates: ['warehouse_01', 'warehouse_02'],
@@ -119,7 +115,7 @@
       },
       {
         id: 'about_body_2',
-        label: '关于我们页面正文图（第2张，新增）',
+        label: 'About Us page body image (No. 2, new)',
         targetPath: '',
         w: 900, h: 675,
         candidates: ['warehouse_02', 'warehouse_01'],
@@ -127,18 +123,18 @@
       },
 
       // 生产车间（20211220）6张：页面/列表/首页都会复用
-      { id: 'workshop_20211220_1', label: '生产车间图 1（20211220）', targetPath: 'static/upload/image/20211220/1639986768516176.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_02' },
-      { id: 'workshop_20211220_2', label: '生产车间图 2（20211220）', targetPath: 'static/upload/image/20211220/1639986783385693.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_01' },
-      { id: 'workshop_20211220_3', label: '生产车间图 3（20211220）', targetPath: 'static/upload/image/20211220/1639986813578043.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_09' },
-      { id: 'workshop_20211220_4', label: '生产车间图 4（20211220）', targetPath: 'static/upload/image/20211220/1639986824594396.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_04' },
-      { id: 'workshop_20211220_5', label: '生产车间图 5（20211220）', targetPath: 'static/upload/image/20211220/1639986835520918.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_07' },
-      { id: 'workshop_20211220_6', label: '生产车间图 6（20211220）', targetPath: 'static/upload/image/20211220/1639986846709326.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_05' },
+      { id: 'workshop_20211220_1', label: 'Production workshop image 1 (20211220)', targetPath: 'static/upload/image/20211220/1639986768516176.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_02' },
+      { id: 'workshop_20211220_2', label: 'Production workshop image 2 (20211220)', targetPath: 'static/upload/image/20211220/1639986783385693.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_01' },
+      { id: 'workshop_20211220_3', label: 'Production workshop image 3 (20211220)', targetPath: 'static/upload/image/20211220/1639986813578043.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_09' },
+      { id: 'workshop_20211220_4', label: 'Production workshop image 4 (20211220)', targetPath: 'static/upload/image/20211220/1639986824594396.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_04' },
+      { id: 'workshop_20211220_5', label: 'Production workshop image 5 (20211220)', targetPath: 'static/upload/image/20211220/1639986835520918.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_07' },
+      { id: 'workshop_20211220_6', label: 'Production workshop image 6 (20211220)', targetPath: 'static/upload/image/20211220/1639986846709326.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_05' },
 
       // 生产车间（20230727）原来是竖图/横图混合：这里先保留预览（如你不想动这组，后续可以不替换）
-      { id: 'workshop_20230727_a', label: '生产车间图（20230727）A', targetPath: 'static/upload/image/20230727/1690425785192477.jpg', w: 500, h: 667, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_03' },
-      { id: 'workshop_20230727_b', label: '生产车间图（20230727）B', targetPath: 'static/upload/image/20230727/1690425905125950.jpg', w: 450, h: 600, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_08' },
-      { id: 'workshop_20230727_list1', label: '生产车间列表缩略图（20230727）1', targetPath: 'static/upload/image/20230727/1690425724927342.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_06' },
-      { id: 'workshop_20230727_list2', label: '生产车间列表缩略图（20230727）2', targetPath: 'static/upload/image/20230727/1690425898518648.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_01' },
+      { id: 'workshop_20230727_a', label: 'Production workshop image (20230727) A', targetPath: 'static/upload/image/20230727/1690425785192477.jpg', w: 500, h: 667, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_03' },
+      { id: 'workshop_20230727_b', label: 'Production workshop image (20230727) B', targetPath: 'static/upload/image/20230727/1690425905125950.jpg', w: 450, h: 600, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_08' },
+      { id: 'workshop_20230727_list1', label: 'Production workshop list thumbnail (20230727) 1', targetPath: 'static/upload/image/20230727/1690425724927342.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_06' },
+      { id: 'workshop_20230727_list2', label: 'Production workshop list thumbnail (20230727) 2', targetPath: 'static/upload/image/20230727/1690425898518648.jpg', w: 550, h: 413, candidates: ['workshop_01','workshop_02','workshop_03','workshop_04','workshop_05','workshop_06','workshop_07','workshop_08','workshop_09'], suggested: 'workshop_01' },
     ];
 
     const elGrid = document.getElementById('grid');
@@ -160,15 +156,15 @@
       const head = document.createElement('div');
       head.className = 'card-head';
 
-      const targetLabel = t.targetPath ? `<code>${t.targetPath}</code>` : `<span class="badge">新增图片位（页面新增一张图）</span>`;
+      const targetLabel = t.targetPath ? `<code>${t.targetPath}</code>` : `<span class="badge">New image slot (one extra image on the page)</span>`;
       const openLink = t.targetPath
-        ? `<a href="${t.targetPath}" target="_blank" rel="noreferrer">打开原图</a>`
-        : `<span class="meta" style="opacity:.7">无原图</span>`;
+        ? `<a href="${t.targetPath}" target="_blank" rel="noreferrer">Open original image</a>`
+        : `<span class="meta" style="opacity:.7">No original image</span>`;
 
       head.innerHTML = `
         <div>
           <div class="title">${t.label}</div>
-          <div class="meta">目标：${targetLabel}（展示框：${t.w}×${t.h}）</div>
+          <div class="meta">Target: ${targetLabel} (Display area: ${t.w}×${t.h})</div>
         </div>
         <div class="meta">${openLink}</div>
       `;
@@ -179,37 +175,37 @@
       const left = document.createElement('div');
       left.className = 'panel';
       left.innerHTML = `
-        <div class="panel-head"><strong>网站当前图片</strong><span>object-fit: contain</span></div>
+        <div class="panel-head"><strong>Current website image</strong><span>object-fit: contain</span></div>
         <div class="img-wrap">
           <div class="img-box fit-contain" style="--w:${t.w};--h:${t.h}">
-            ${t.targetPath ? `<img src="${t.targetPath}" alt="${t.label} 原图" loading="lazy" />` : `<div class="placeholder">无原图（这是新增图片位）</div>`}
+            ${t.targetPath ? `<img src="${t.targetPath}" alt="${t.label} original image" loading="lazy" />` : `<div class="placeholder">No original image(this is a new image slot)</div>`}
           </div>
         </div>
-        <div class="hint">左侧只用于对比（新增位没有原图）。</div>
+        <div class="hint">Left side is for comparison only (new slots have no original image).</div>
       `;
 
       const right = document.createElement('div');
       right.className = 'panel';
       right.innerHTML = `
-        <div class="panel-head"><strong>替换图候选</strong><span>可切换候选</span></div>
+        <div class="panel-head"><strong>Replacement candidates</strong><span>Switch candidates</span></div>
         <div class="row">
           <div class="left">
-            <span class="badge">候选</span>
+            <span class="badge">Candidate</span>
             <select data-role="picker">${optionHtml(t.candidates)}</select>
           </div>
-          <div class="meta"><a data-role="open" href="#" target="_blank" rel="noreferrer">打开替换图</a></div>
+          <div class="meta"><a data-role="open" href="#" target="_blank" rel="noreferrer">Open replacement image</a></div>
         </div>
         <div data-role="raw" class="img-wrap">
           <div class="img-box fit-contain" style="--w:${t.w};--h:${t.h}">
-            <img data-role="rawImg" src="" alt="${t.label} 替换图（原始比例预览）" loading="lazy" />
+            <img data-role="rawImg" src="" alt="${t.label} replacement image (original scale preview)" loading="lazy" />
           </div>
         </div>
         <div data-role="crop" class="img-wrap">
           <div class="img-box fit-cover" style="--w:${t.w};--h:${t.h}">
-            <img data-role="cropImg" src="" alt="${t.label} 替换图（裁剪预览）" loading="lazy" />
+            <img data-role="cropImg" src="" alt="${t.label} replacement image (crop preview)" loading="lazy" />
           </div>
         </div>
-        <div class="hint">“裁剪预览”模拟实际替换时为了匹配展示区域而进行的居中裁剪。</div>
+        <div class="hint">"Crop preview" simulates the center-crop used to fit the display area when replacing.</div>
       `;
 
       body.appendChild(left);
