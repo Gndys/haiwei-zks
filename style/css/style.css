@@ -419,6 +419,9 @@ body.page-contact .contactPageQr { position: static; width: 260px; margin: 0 aut
 #contactUs .contactInfo .contactQr .qrCard { width: 220px; }
 .productsList ul .clear { clear: none; }
 .productsList ul .clearfix { clear: both; }
+.headerWxGroup { position: absolute; right: 10px; top: 56px; float: none; width: auto; justify-content: flex-end; margin: 0; padding-left: 0; clear: both; }
+.headerWxBtn { height: 26px; min-width: 26px; padding: 0 6px; font-size: 10px; }
+.header .searchBtn { position: absolute; right: 10px; top: 14px; float: none; margin: 0; }
 }
 @media only screen and (max-width:540px) {
 .aboutUs .aboutUsThumb { float: none; width: 100%; }
