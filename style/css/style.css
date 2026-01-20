@@ -26,7 +26,7 @@ img.alignright { float: right; margin: 0 0 15px 15px; }
 #header { background: #fff; width: 100%; border-bottom: 2px solid #243d7b; border-bottom: 2px solid var(--brand-blue); padding: 31px 0; transition: all 0.5s ease-in 0s; }
 #header.fixed { position: fixed; left: 0; top: 0; z-index: 999; transition: all 0.5s ease-in 0s; padding: 10px 0; }
 .header { position: relative; }
-.headerWxGroup { float: right; display: flex; align-items: center; gap: 10px; margin-top: 1px; }
+.headerWxGroup { float: right; display: flex; align-items: center; gap: 8px; margin-top: 1px; margin-left: 8px; }
 .headerWx { position: relative; z-index: 10; }
 .headerWxBtn { display: inline-flex; min-width: 36px; height: 36px; padding: 0 10px; border-radius: 999px; background: #243d7b; background: var(--brand-blue); color: #fff; align-items: center; justify-content: center; line-height: 1; font-size: 12px; font-weight: 700; letter-spacing: 0; }
 .headerWxBtn:hover { background: #1f3366; background: var(--brand-blue-hover); }
@@ -52,17 +52,17 @@ body.page-contact .post { position: relative; }
 body.page-contact .post .entry { padding-right: 320px; }
 body.page-contact .contactPageQr { position: absolute; right: 0; top: 72px; width: 280px; }
 .header, .breadcrumb, #service, .aboutUs, #products, #news, .showcase, #contactUs, .footer, #container, #productsBox { width: 1200px; margin: 0 auto; }
-.header .searchBtn { background: url(../images/search.png) no-repeat center 12px; width: 40px; height: 36px; float: right; margin-top: 1px; display: inline-block; cursor: pointer; }
+.header .searchBtn { background: url(../images/search.png) no-repeat center 12px; width: 34px; height: 36px; float: right; margin-top: 1px; display: inline-block; cursor: pointer; }
 .header .searchBtn a { display: block; width: 40px; height: 36px; }
 .header .logo { float: left; width: 200px; margin-right: 20px; display: inline; height: auto; }
 .header .logo img { display: block; height: auto; }
 .header .logoText { margin-top: 6px; line-height: 1.2; }
 .header .logoCn { font-size: 12px; color: #243d7b; font-weight: 700; }
 .header .logoPy { font-size: 11px; color: #777; letter-spacing: 0.5px; }
-.header .menu { float: right; height: 38px; width: 750px; }
+.header .menu { float: right; height: 38px; width: 690px; }
 .header .menu ul { width: 100%; }
-.header .menu ul li { float: left; line-height: 38px; padding: 10px 10px 10px; position: relative; }
-.header .menu ul li a { display: block; float: left; padding: 0 10px; }
+.header .menu ul li { float: left; line-height: 38px; padding: 10px 6px 10px; position: relative; }
+.header .menu ul li a { display: block; float: left; padding: 0 8px; font-size: 0.95em; }
 .header .menu ul li a:hover, .header .menu ul li a.on, .header .menu ul li.current-menu-item a, .header .menu ul li.current-post-parent a, .header .menu ul li a.onclick { background: #243d7b; background: var(--brand-blue); color: #fff; border-radius: 4px; }
 .header .menu ul li ul { position: absolute; left: 0; top: 45px; width: 200px; border: 1px solid #243d7b; border: 1px solid var(--brand-blue); background: #243d7b; background: var(--brand-blue); border-radius: 5px; display: none; padding: 5px 0; z-index: 9; }
 .header .menu ul li ul span { border-bottom: 8px solid #243d7b; border-bottom: 8px solid var(--brand-blue); border-left: 8px solid transparent; border-right: 8px solid transparent; position: absolute; top: -9px; left: 40px; }
