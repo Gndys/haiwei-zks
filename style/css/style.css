@@ -54,12 +54,14 @@ body.page-contact .contactPageQr { position: absolute; right: 0; top: 72px; widt
 .header, .breadcrumb, #service, .aboutUs, #products, #news, .showcase, #contactUs, .footer, #container, #productsBox { width: 1200px; margin: 0 auto; }
 .header .searchBtn { background: url(../images/search.png) no-repeat center 12px; width: 34px; height: 36px; float: right; margin-top: 1px; margin-right: 12px; display: inline-block; cursor: pointer; }
 .header .searchBtn a { display: block; width: 40px; height: 36px; }
-.header .logo { float: left; width: 200px; margin-right: 20px; display: inline; height: auto; }
-.header .logo img { display: block; height: auto; }
-.header .logoText { margin-top: 6px; line-height: 1.2; }
-.header .logoCn { font-size: 12px; color: #243d7b; font-weight: 700; }
-.header .logoPy { font-size: 11px; color: #777; letter-spacing: 0.5px; }
-.header .menu { float: right; height: 38px; width: 690px; }
+.header .logo { float: left; width: 268px; margin-right: 20px; display: inline; height: auto; }
+.header .logo img { display: block; width: 100%; height: auto; }
+.header .logoText { margin-top: 6px; line-height: 1.2; width: 100%; }
+.header .logoCn { font-size: 12px; color: #243d7b; font-weight: 700; text-align: justify; text-align-last: justify; }
+.header .logoPy { font-size: 11px; color: #777; letter-spacing: 0.5px; text-align: justify; text-align-last: justify; white-space: nowrap; }
+.header .logoCn::after,
+.header .logoPy::after { content: ""; display: inline-block; width: 100%; }
+.header .menu { float: right; height: 38px; width: 690px; margin-top: 10px; }
 .header .menu ul { width: 100%; }
 .header .menu ul li { float: left; line-height: 38px; padding: 10px 6px 10px; position: relative; }
 .header .menu ul li a { display: block; float: left; padding: 0 8px; font-size: 0.95em; }
@@ -368,7 +370,7 @@ ul.bxslider a{cursor:default}
 @media only screen and (max-width:1024px) {
 #header { padding: 20px 0; }
   .header .logo { width: 200px; transition: all 0.4s ease 0s; }
-.header .menu { width: 68.359375%; transition: all 0.4s ease 0s; }
+  .header .menu { width: 68.359375%; transition: all 0.4s ease 0s; }
 .header .menu ul li { font-size: 0.875em; transition: all 0.4s ease 0s; }
 #news .partner ul li { margin: 15px 0px 20px 3.703704%; }
 }
